@@ -15,8 +15,24 @@ admin.initializeApp({
     projectId: projectId,
 });
 
+// Initialize Firebase Storage
+const { Storage } = require('@google-cloud/storage');
+const storage = new Storage({
+    projectId: projectId,
+    credentials: serviceAccount
+});
+const bucket = storage.bucket(`${projectId}.appspot.com`);
+const multer = require('multer');
+const upload = multer({
+    storage: multer.memoryStorage(),
+    limits: {
+        fileSize: 5 * 1024 * 1024
+    }
+});
+
 // File Route Require
 const treatmentRoute = require('./src/routes/treatment')(admin.firestore());
+const medicineRoute = require('./src/routes/medicine')(admin.firestore(), bucket, upload);
 
 const app = express();
 const port = 8080;
@@ -33,6 +49,7 @@ app.use(cors({ origin: true }));
 
 // Call Route
 app.use('/api/treatment', treatmentRoute);
+app.use('/api/medicine', medicineRoute);
 
 app.listen(port, (error) => {
     if (error) {
