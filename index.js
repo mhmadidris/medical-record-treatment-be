@@ -33,6 +33,7 @@ const upload = multer({
 // File Route Require
 const treatmentRoute = require('./src/routes/treatment')(admin.firestore());
 const medicineRoute = require('./src/routes/medicine')(admin.firestore(), bucket, upload);
+const patientRoute = require('./src/routes/patient')(admin.firestore());
 
 const app = express();
 const port = 8080;
@@ -50,6 +51,7 @@ app.use(cors({ origin: true }));
 // Call Route
 app.use('/api/treatment', treatmentRoute);
 app.use('/api/medicine', medicineRoute);
+app.use('/api/patient', patientRoute);
 
 app.listen(port, (error) => {
     if (error) {
