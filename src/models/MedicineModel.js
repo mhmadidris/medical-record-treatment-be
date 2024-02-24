@@ -5,6 +5,8 @@ class MedicineModel {
         this.title = title;
         this.stock = stock;
         this.price = price;
+        this.created_at = new Date().toLocaleString("id-ID");
+        this.updated_at = new Date().toLocaleString("id-ID");
     }
 }
 

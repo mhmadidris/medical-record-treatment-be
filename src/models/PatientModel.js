@@ -7,6 +7,8 @@ class PatientModel {
         this.treatmentIds = treatmentIds;
         this.medicineIds = medicineIds;
         this.cost = cost;
+        this.created_at = new Date().toLocaleString("id-ID");
+        this.updated_at = new Date().toLocaleString("id-ID");
     }
 }
 

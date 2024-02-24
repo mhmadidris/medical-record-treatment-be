@@ -15,6 +15,9 @@ admin.initializeApp({
     projectId: projectId,
 });
 
+const locale = 'id-ID';
+global.locale = locale;
+
 // Initialize Firebase Storage
 const { Storage } = require('@google-cloud/storage');
 const storage = new Storage({
