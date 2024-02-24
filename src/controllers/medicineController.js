@@ -99,4 +99,60 @@ async function getMedicineDetail(db, req, res) {
     }
 }
 
-module.exports = { getMedicines, uploadImageMedicine, createMedicine, getMedicineDetail };
+async function updateMedicine(db, req, res) {
+    try {
+        const { medicineId } = req.query;
+        const { image, title, stock, price } = req.body;
+
+        if (!medicineId) {
+            return res.status(400).json({ message: 'Medicine ID is required' });
+        }
+
+        const medicineRef = db.collection('medicines').doc(medicineId);
+        const doc = await medicineRef.get();
+
+        if (!doc.exists) {
+            return res.status(404).json({ message: 'Medicine not found' });
+        }
+
+        await medicineRef.update({
+            image: image,
+            title: title,
+            stock: stock,
+            price: price
+        });
+
+        res.status(200).json({ message: 'Medicine updated successfully' });
+    } catch (error) {
+        console.error('Error updating medicine:', error);
+        res.status(500).send('Internal Server Error');
+    }
+}
+
+async function deleteImageMedicine(req, res, bucket) {
+    try {
+        const { imageUrl } = req.query;
+
+        if (!imageUrl) {
+            return res.status(400).json({ message: 'Image URL is required' });
+        }
+
+        const fileName = extractFileNameFromImageUrl(imageUrl);
+
+        const file = bucket.file(fileName);
+
+        await file.delete();
+
+        res.status(200).json({ message: 'Image deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting image:', error);
+        res.status(500).send('Internal Server Error');
+    }
+}
+
+function extractFileNameFromImageUrl(imageUrl) {
+    const parts = imageUrl.split('/');
+    return parts[parts.length - 1];
+}
+
+module.exports = { getMedicines, uploadImageMedicine, createMedicine, getMedicineDetail, deleteImageMedicine, updateMedicine };
