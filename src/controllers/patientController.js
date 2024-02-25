@@ -44,10 +44,7 @@ async function createPatient(db, req, res) {
             return res.status(400).json({ message: 'Missing required fields' });
         }
 
-        const treatmentIdsArray = treatmentIds.split(',').map(id => id.trim());
-        const medicineIdsArray = medicineIds.split(',').map(id => id.trim());
-
-        const validationErrors = await validateIds(db, treatmentIdsArray, medicineIdsArray);
+        const validationErrors = await validateIds(db, treatmentIds, medicineIds);
 
         if (validationErrors.length > 0) {
             return res.status(400).json({ message: validationErrors.join(' ') });
@@ -57,8 +54,8 @@ async function createPatient(db, req, res) {
             patientID,
             patientName,
             date,
-            treatmentIds: treatmentIdsArray,
-            medicineIds: medicineIdsArray,
+            treatmentIds,
+            medicineIds,
             cost,
         });
 
@@ -69,14 +66,14 @@ async function createPatient(db, req, res) {
     }
 }
 
-async function validateIds(db, treatmentIdsArray, medicineIdsArray) {
+async function validateIds(db, treatmentIds, medicineIds) {
     const errors = [];
 
-    if (treatmentIdsArray.length === 0) {
+    if (treatmentIds.length === 0) {
         errors.push('Cannot save patient. No treatment IDs provided.');
     }
 
-    if (medicineIdsArray.length === 0) {
+    if (medicineIds.length === 0) {
         errors.push('Cannot save patient. No medicine IDs provided.');
     }
 
@@ -86,12 +83,12 @@ async function validateIds(db, treatmentIdsArray, medicineIdsArray) {
     const medicinesSnapshot = await db.collection('medicines').get();
     const availableMedicineIds = medicinesSnapshot.docs.map(doc => doc.id);
 
-    const invalidTreatmentIds = treatmentIdsArray.filter(id => !availableTreatmentIds.includes(id));
+    const invalidTreatmentIds = treatmentIds.filter(id => !availableTreatmentIds.includes(id));
     if (invalidTreatmentIds.length > 0) {
         errors.push(`Treatment IDs ${invalidTreatmentIds.join(', ')} do not exist.`);
     }
 
-    const invalidMedicineIds = medicineIdsArray.filter(id => !availableMedicineIds.includes(id));
+    const invalidMedicineIds = medicineIds.filter(id => !availableMedicineIds.includes(id));
     if (invalidMedicineIds.length > 0) {
         errors.push(`Medicine IDs ${invalidMedicineIds.join(', ')} do not exist.`);
     }
