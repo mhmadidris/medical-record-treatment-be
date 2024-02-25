@@ -1,0 +1,1694 @@
+{
+	"info": {
+		"_postman_id": "076fa5e3-dd38-43a8-98e6-9359d73ca19c",
+		"name": "Medical Record",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15946453"
+	},
+	"item": [
+		{
+			"name": "Treatment",
+			"item": [
+				{
+					"name": "Create Treatment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"treatment\": \"Med\",\r\n    \"price\": 630000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/treatment",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"treatment"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Treatment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"treatment\": \"Threapy\",\r\n    \"price\": 150000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/treatment",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"treatment"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "121"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"79-vq5FKBwQhAGHr1DbWJ4X236WhQk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 Feb 2024 06:27:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Treatment added successfully\",\n    \"treatment\": {\n        \"id\": \"zvfIlh3HeEgKEwozvsOi\",\n        \"treatment\": \"Threapy\",\n        \"price\": 150000\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Treatment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/treatment?page=1&limit=10",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"treatment"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Treatment",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/treatment?page=1&limit=10",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"treatment"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "204"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cc-U4Lh5k1i3SL6ExvhzvQm5n0kwP8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 Feb 2024 03:54:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"totalItems\": 2,\n    \"totalCount\": 2,\n    \"totalPages\": 1,\n    \"currentPage\": 1,\n    \"treatments\": [\n        {\n            \"id\": \"4p5fL21NyoagHRyPMRSB\",\n            \"treatment\": \"sdsd\",\n            \"price\": 23\n        },\n        {\n            \"id\": \"KutYe3HmP8G6ZxEcz6Gs\",\n            \"treatment\": \"test\",\n            \"price\": \"92,8392\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Detail Treatment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/treatment/detail?treatmentId=zvfIlh3HeEgKEwozvsOi",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"treatment",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "treatmentId",
+									"value": "zvfIlh3HeEgKEwozvsOi"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Detail Treatment",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/treatment/detail?treatmentId=zvfIlh3HeEgKEwozvsOi",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"treatment",
+										"detail"
+									],
+									"query": [
+										{
+											"key": "treatmentId",
+											"value": "zvfIlh3HeEgKEwozvsOi"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "80"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"50-K9XTeI6FFv7ELpGuNyRebuVmp1o\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 Feb 2024 06:33:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"treatment\": {\n        \"id\": \"zvfIlh3HeEgKEwozvsOi\",\n        \"treatment\": \"Threapy\",\n        \"price\": 150000\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Treatment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"treatment\": \"update\",\r\n    \"price\": 20000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/treatment/update?treatmentId=zvfIlh3HeEgKEwozvsOi",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"treatment",
+								"update"
+							],
+							"query": [
+								{
+									"key": "treatmentId",
+									"value": "zvfIlh3HeEgKEwozvsOi"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Treatment",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"treatment\": \"update\",\r\n    \"price\": 20000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/treatment/update?treatmentId=zvfIlh3HeEgKEwozvsOi",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"treatment",
+										"update"
+									],
+									"query": [
+										{
+											"key": "treatmentId",
+											"value": "zvfIlh3HeEgKEwozvsOi"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-CyJk7OZ8wYi2WwwdR9U3uJFlUYE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 Feb 2024 06:37:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Treatment updated successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Treatment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/treatment/delete?treatmentId=o3L44EY19E3MnOaqI0Nw",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"treatment",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "treatmentId",
+									"value": "o3L44EY19E3MnOaqI0Nw"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Treatment",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/treatment/delete?treatmentId=o3L44EY19E3MnOaqI0Nw",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"treatment",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "treatmentId",
+											"value": "o3L44EY19E3MnOaqI0Nw"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-wHnhzjGjmi52ie76nEu1IA+XBQE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 Feb 2024 06:40:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Treatment deleted successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Medicine",
+			"item": [
+				{
+					"name": "Create Medicine",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image\": \"https://storage.googleapis.com/medical-db-f806d.appspot.com/1708879995070.jpg?GoogleAccessId=firebase-adminsdk-qlyed%40medical-db-f806d.iam.gserviceaccount.com&Expires=1709484797&Signature=h%2Fj1hibrqUlXBx1XhRvwXd5anX9pjr8tfcxY0qxLL9dWdzqsBAYWs4trTQz4ROYeABHDBYaVlLcdK8DM%2FvbllQ8p8XkRr4uvi25cyGzCZLUDwZRPQTXrjYBz4r5cow1DyWZIDvin%2BHGbuSi7RlCQP0G50FdfO7c7B1jjOhn1tv5wqhAsOvzR%2BceaFnaQgEJ2joKmqKKqAto6v%2B%2BTLjDFoTW1rxjdad5lfT35GYdLGrz%2FD7a6oawJmSCWzB%2BaVZDZd%2B79lQXo8HcJjHJGU98%2Bgl8i1KTi0484KwVwuLfmemDfKn7oeI7rvVR9qOtaWbtoM9r034bScZCWpsysARMWJw%3D%3D\",\r\n    \"title\": \"Betadine\",\r\n    \"stock\": 343,\r\n    \"price\": 10000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/medicine",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"medicine"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Medicine",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"image\": \"https://firebasestorage.googleapis.com/medical-record-treatment.appspot.com/1708762660835.jpg\",\r\n    \"title\": \"Paracetamol\",\r\n    \"stock\": 87,\r\n    \"price\": 50000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/medicine",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"medicine"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"47-zeSp5J4poqzjrZGLO8dSsdMFz4c\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 Feb 2024 08:26:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Medicine created successfully\",\n    \"id\": \"Vk6Kfc1pK0CZrHcFEozy\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Medicine",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/medicine?page=1&limit=10&search=para",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"medicine"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "para"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Medicine",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/medicine?page=1&limit=10",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"medicine"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "257"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"101-ICbvrx8rh3ZC/mvvwgWWkahb4Mc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 Feb 2024 08:29:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"totalItems\": 1,\n    \"totalCount\": 1,\n    \"totalPages\": 1,\n    \"currentPage\": 1,\n    \"medicines\": [\n        {\n            \"id\": \"Vk6Kfc1pK0CZrHcFEozy\",\n            \"image\": \"https://firebasestorage.googleapis.com/medical-record-treatment.appspot.com/1708762660835.jpg\",\n            \"title\": \"Paracetamol\",\n            \"stock\": 87,\n            \"price\": 50000\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Upload Medicine Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "federico-respini-sYffw0LNr7s-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/medicine/upload",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"medicine",
+								"upload"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Upload Medicine Image",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "federico-respini-sYffw0LNr7s-unsplash.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/medicine/upload",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"medicine",
+										"upload"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "138"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8a-p4XQs9zV+X4cnWiIA9zrtQCMSYY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 Feb 2024 08:17:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"File uploaded successfully\",\n    \"fileUrl\": \"https://storage.googleapis.com/medical-record-treatment.appspot.com/1708762660835.jpg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Detail Medicine",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/medicine/detail?medicineId=eag5kXtCOZN685pIolzn",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"medicine",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "medicineId",
+									"value": "eag5kXtCOZN685pIolzn"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Detail Medicine",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/medicine/detail?medicineId=eag5kXtCOZN685pIolzn",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"medicine",
+										"detail"
+									],
+									"query": [
+										{
+											"key": "medicineId",
+											"value": "eag5kXtCOZN685pIolzn"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "191"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bf-gULPySJwx2FiBF6VjqVwpk38x9o\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 Feb 2024 08:39:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"medicine\": {\n        \"id\": \"eag5kXtCOZN685pIolzn\",\n        \"image\": \"https://firebasestorage.googleapis.com/medical-record-treatment.appspot.com/1708762660835.jpg\",\n        \"title\": \"Betadine\",\n        \"stock\": 343,\n        \"price\": 10000\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Image",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/medicine/delete-image?imageUrl=https://storage.googleapis.com/medical-db-f806d.appspot.com/1708852855791.jpg?GoogleAccessId=firebase-adminsdk-qlyed%40medical-db-f806d.iam.gserviceaccount.com%26Expires=1709457659%26Signature=W9wTy5S%2FodLcbMQDwWxaMjLJVO9GpDjz5gQMYkW0Hfs3XKuH6ZFxUYMRXXP9ZLfnfx9NOKSwriGJnMDiSEVh3GYpEY0sACZ7yhEMWiLhmA3O%2FvWTZsP6lFpnDII4XG8UOisyVvM6In08LfJDFMc34RMnR%2BrruA2HlwaAZk%2FHEw9ptewocojPRVhRINJvtaAzyzTeyjcCKzlP%2BofCpURH4j5cb%2FTuflDPWXQcpfBJx18rm%2FLAqSzKbo5NLSuB%2BIE9fuqOMDJvlQH3k4Ms4bOn4%2FEv1m6gWCGeOHK5xALWIJ76hQCa3g6PthKZ7baqwOtsnWVjvfFdeLH5oPqdqUl4Yw%3D%3D",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"medicine",
+								"delete-image"
+							],
+							"query": [
+								{
+									"key": "imageUrl",
+									"value": "https://storage.googleapis.com/medical-db-f806d.appspot.com/1708852855791.jpg?GoogleAccessId=firebase-adminsdk-qlyed%40medical-db-f806d.iam.gserviceaccount.com&Expires=1709457659&Signature=W9wTy5S%2FodLcbMQDwWxaMjLJVO9GpDjz5gQMYkW0Hfs3XKuH6ZFxUYMRXXP9ZLfnfx9NOKSwriGJnMDiSEVh3GYpEY0sACZ7yhEMWiLhmA3O%2FvWTZsP6lFpnDII4XG8UOisyVvM6In08LfJDFMc34RMnR%2BrruA2HlwaAZk%2FHEw9ptewocojPRVhRINJvtaAzyzTeyjcCKzlP%2BofCpURH4j5cb%2FTuflDPWXQcpfBJx18rm%2FLAqSzKbo5NLSuB%2BIE9fuqOMDJvlQH3k4Ms4bOn4%2FEv1m6gWCGeOHK5xALWIJ76hQCa3g6PthKZ7baqwOtsnWVjvfFdeLH5oPqdqUl4Yw%3D%3D"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Image",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/medicine/delete-image?imageUrl=https://firebasestorage.googleapis.com/medical-record-treatment.appspot.com/1708762660835.jpg",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"medicine",
+										"delete-image"
+									],
+									"query": [
+										{
+											"key": "imageUrl",
+											"value": "https://firebasestorage.googleapis.com/medical-record-treatment.appspot.com/1708762660835.jpg"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"28-UlCcgBOXM5yPY4W9NDLAsyt+Nmk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 Feb 2024 10:38:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Image deleted successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Medicine",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"image\": \"https://firebasestorage.googleapis.com/medical-record-treatment.appspot.com/1708762660835.jpg\",\r\n    \"title\": \"Betadine\",\r\n    \"stock\": 343,\r\n    \"price\": 10000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/medicine/update?medicineId=eag5kXtCOZN685pIolzn",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"medicine",
+								"update"
+							],
+							"query": [
+								{
+									"key": "medicineId",
+									"value": "eag5kXtCOZN685pIolzn"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Medicine",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"image\": \"https://firebasestorage.googleapis.com/medical-record-treatment.appspot.com/1708762660835.jpg\",\r\n    \"title\": \"Betadine\",\r\n    \"stock\": 343,\r\n    \"price\": 10000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/medicine/update?medicineId=eag5kXtCOZN685pIolzn",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"medicine",
+										"update"
+									],
+									"query": [
+										{
+											"key": "medicineId",
+											"value": "eag5kXtCOZN685pIolzn"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-uMTLae278Uo1tikI9fKjgAQaAp8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 Feb 2024 10:42:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Medicine updated successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Medicine",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/medicine/delete?medicineId=5yPrc0rffkTJjRsZTBVc",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"medicine",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "medicineId",
+									"value": "5yPrc0rffkTJjRsZTBVc"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Medicine",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/medicine/delete?medicineId=O1fQ8LDGwPo6kchBRMJT",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"medicine",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "medicineId",
+											"value": "O1fQ8LDGwPo6kchBRMJT"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "64"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"40-r+cLhajXxO1gZToZ9tqyrnS9z8Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 25 Feb 2024 09:03:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Medicine and associated image deleted successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Patient",
+			"item": [
+				{
+					"name": "Get All Patient",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/patient",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"patient"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Patient",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/patient",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"patient"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "952"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b8-AEb89etirHPec+TyVBqM29wmFGA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 Feb 2024 09:41:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"patients\": [\n        {\n            \"id\": \"AKG6NdymtE0lMTnKh2nX\",\n            \"patientID\": \"P-12345\",\n            \"patientName\": \"John Smith\",\n            \"date\": \"Wed, 12 January 2024\",\n            \"cost\": 400000,\n            \"treatments\": [\n                {\n                    \"id\": \"4b7yI9QItIH9nZDWnre5\",\n                    \"treatment\": \"Threapy\",\n                    \"price\": 150000\n                },\n                {\n                    \"id\": \"MnQYcEME8W3muvSD8CJl\",\n                    \"treatment\": \"Medication\",\n                    \"price\": 90000\n                }\n            ],\n            \"medicines\": [\n                {\n                    \"id\": \"Vk6Kfc1pK0CZrHcFEozy\",\n                    \"image\": \"https://firebasestorage.googleapis.com/medical-record-treatment.appspot.com/1708762660835.jpg\",\n                    \"price\": 50000,\n                    \"title\": \"Paracetamol\",\n                    \"stock\": 87\n                }\n            ]\n        },\n        {\n            \"id\": \"PEkFFFUhTSM09UICfHUW\",\n            \"patientID\": \"P-12345\",\n            \"patientName\": \"John Smith\",\n            \"date\": \"Wed, 12 January 2024\",\n            \"cost\": 400000,\n            \"treatments\": [\n                {\n                    \"id\": \"4b7yI9QItIH9nZDWnre5\",\n                    \"treatment\": \"Threapy\",\n                    \"price\": 150000\n                },\n                {\n                    \"id\": \"MnQYcEME8W3muvSD8CJl\",\n                    \"treatment\": \"Medication\",\n                    \"price\": 90000\n                }\n            ],\n            \"medicines\": [\n                {\n                    \"id\": \"Vk6Kfc1pK0CZrHcFEozy\",\n                    \"image\": \"https://firebasestorage.googleapis.com/medical-record-treatment.appspot.com/1708762660835.jpg\",\n                    \"price\": 50000,\n                    \"title\": \"Paracetamol\",\n                    \"stock\": 87\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Patient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"patientID\": \"P-12345\",\r\n    \"patientName\": \"John Smith\",\r\n    \"date\": \"Wed, 12 January 2024\",\r\n    \"treatmentIds\": [\"fkiVMg5vgvJAZOl0iyXs\"],\r\n    \"medicineIds\": [\"5o1Nz9OwQsqFX7m6T3WU\"],\r\n    \"cost\": 400000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/patient",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"patient"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Patient",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"patientID\": \"P-12345\",\r\n    \"patientName\": \"John Smith\",\r\n    \"date\": \"Wed, 12 January 2024\",\r\n    \"treatmentIds\": \"4b7yI9QItIH9nZDWnre5, MnQYcEME8W3muvSD8CJl\",\r\n    \"medicineIds\": \"Vk6Kfc1pK0CZrHcFEozy\",\r\n    \"cost\": 400000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/patient",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"patient"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "70"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"46-sc7ddA7eW/jE/a1ll3W67/lS0DY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 Feb 2024 09:37:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Patient created successfully\",\n    \"id\": \"ZBDhQbbgJC9wi73ibMgv\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Detail Patient",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/patient/detail?patientId=AKG6NdymtE0lMTnKh2nX",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"patient",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "patientId",
+									"value": "AKG6NdymtE0lMTnKh2nX"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Detail Patient",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/patient/detail?patientId=AKG6NdymtE0lMTnKh2nX",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"patient",
+										"detail"
+									],
+									"query": [
+										{
+											"key": "patientId",
+											"value": "AKG6NdymtE0lMTnKh2nX"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "480"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e0-OkMIqtksBrfWHF09u06kUzHcwco\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 Feb 2024 09:49:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"patient\": {\n        \"id\": \"AKG6NdymtE0lMTnKh2nX\",\n        \"patientID\": \"P-12345\",\n        \"patientName\": \"John Smith\",\n        \"date\": \"Wed, 12 January 2024\",\n        \"cost\": 400000,\n        \"treatments\": [\n            {\n                \"id\": \"4b7yI9QItIH9nZDWnre5\",\n                \"treatment\": \"Threapy\",\n                \"price\": 150000\n            },\n            {\n                \"id\": \"MnQYcEME8W3muvSD8CJl\",\n                \"treatment\": \"Medication\",\n                \"price\": 90000\n            }\n        ],\n        \"medicines\": [\n            {\n                \"id\": \"Vk6Kfc1pK0CZrHcFEozy\",\n                \"image\": \"https://firebasestorage.googleapis.com/medical-record-treatment.appspot.com/1708762660835.jpg\",\n                \"price\": 50000,\n                \"title\": \"Paracetamol\",\n                \"stock\": 87\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Patient",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/patient/delete?patientId=AKG6NdymtE0lMTnKh2nX",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"patient",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "patientId",
+									"value": "AKG6NdymtE0lMTnKh2nX"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Patient",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/patient/delete?patientId=AKG6NdymtE0lMTnKh2nX",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"patient",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "patientId",
+											"value": "AKG6NdymtE0lMTnKh2nX"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "42"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2a-1rWJDP6MdlM7Y6wv+HN9AjC/dbo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 Feb 2024 09:52:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Patient deleted successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Patient",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"patientID\": \"P-12345\",\r\n    \"patientName\": \"John Smith\",\r\n    \"date\": \"Wed, 12 January 2024\",\r\n    \"treatmentIds\": [\"fkiVMg5vgvJAZOl0iyXs\"],\r\n    \"medicineIds\": [\"5o1Nz9OwQsqFX7m6T3WU\"],\r\n    \"cost\": 400000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/patient/update?patientId=PEkFFFUhTSM09UICfHUW",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"patient",
+								"update"
+							],
+							"query": [
+								{
+									"key": "patientId",
+									"value": "PEkFFFUhTSM09UICfHUW"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Patient",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"patientID\": \"P-12345\",\r\n    \"patientName\": \"John Smith\",\r\n    \"date\": \"Wed, 12 January 2024\",\r\n    \"treatmentIds\": \"4b7yI9QItIH9nZDWnre5, MnQYcEME8W3muvSD8CJl\",\r\n    \"medicineIds\": \"Vk6Kfc1pK0CZrHcFEozy\",\r\n    \"cost\": 500000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/patient/update?patientId=PEkFFFUhTSM09UICfHUW",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"patient",
+										"update"
+									],
+									"query": [
+										{
+											"key": "patientId",
+											"value": "PEkFFFUhTSM09UICfHUW"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin, Accept-Encoding"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "42"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2a-00Fu97tAQEqIYX4XNlI6JZoTAF4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 24 Feb 2024 10:31:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Patient updated successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Test API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}",
+					"host": [
+						"{{BASE_URL}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response Test API",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}",
+							"host": [
+								"{{BASE_URL}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "13"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"d-CgqfKmdylCVXq1NV12r0Qvj2XgE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 24 Feb 2024 01:15:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Hello, World!"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:8080/api",
+			"type": "string"
+		}
+	]
+}
