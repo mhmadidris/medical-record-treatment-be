@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getMedicines, uploadImageMedicine, createMedicine, getMedicineDetail, deleteImageMedicine, updateMedicine } = require('../controllers/medicineController');
+const { getMedicines, uploadImageMedicine, createMedicine, getMedicineDetail, deleteImageMedicine, updateMedicine, deleteMedicine } = require('../controllers/medicineController');
 
 module.exports = function (db, bucket, upload) {
     router.get('/', async (req, res) => {
@@ -25,6 +25,10 @@ module.exports = function (db, bucket, upload) {
 
     router.delete('/delete-image', async (req, res) => {
         await deleteImageMedicine(req, res, bucket);
+    });
+
+    router.delete('/delete', async (req, res) => {
+        await deleteMedicine(db, req, res, bucket);
     });
 
     return router;

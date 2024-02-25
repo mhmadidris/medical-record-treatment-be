@@ -45,9 +45,12 @@ async function uploadImageMedicine(db, req, res, bucket, upload) {
         const file = bucket.file(fileName);
         await file.save(req.file.buffer, { contentType: req.file.mimetype });
 
-        const publicUrl = `https://storage.googleapis.com/${bucket.name}/${fileName}`;
+        const [url] = await file.getSignedUrl({
+            action: 'read',
+            expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+        });
 
-        res.status(201).json({ message: 'File uploaded successfully', fileUrl: publicUrl });
+        res.status(201).json({ message: 'File uploaded successfully', fileUrl: url });
     } catch (error) {
         console.error('Error uploading file:', error);
         res.status(500).send('Internal Server Error');
@@ -150,9 +153,40 @@ async function deleteImageMedicine(req, res, bucket) {
     }
 }
 
-function extractFileNameFromImageUrl(imageUrl) {
-    const parts = imageUrl.split('/');
-    return parts[parts.length - 1];
+async function deleteMedicine(db, req, res, bucket) {
+    try {
+        const { medicineId } = req.query;
+
+        if (!medicineId) {
+            return res.status(400).json({ message: 'Medicine ID is required' });
+        }
+
+        const medicineRef = db.collection('medicines').doc(medicineId);
+        const doc = await medicineRef.get();
+
+        if (!doc.exists) {
+            return res.status(404).json({ message: 'Medicine not found' });
+        }
+
+        await medicineRef.delete();
+
+        const data = doc.data();
+        const imageUrl = data.image;
+        const fileName = extractFileNameFromImageUrl(imageUrl);
+        const file = bucket.file(fileName);
+        await file.delete();
+
+        res.status(200).json({ message: 'Medicine and associated image deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting medicine and image:', error);
+        res.status(500).send('Internal Server Error');
+    }
 }
 
-module.exports = { getMedicines, uploadImageMedicine, createMedicine, getMedicineDetail, deleteImageMedicine, updateMedicine };
+function extractFileNameFromImageUrl(imageUrl) {
+    const url = new URL(imageUrl);
+    const pathSegments = url.pathname.split('/');
+    return pathSegments[pathSegments.length - 1];
+}
+
+module.exports = { getMedicines, uploadImageMedicine, createMedicine, getMedicineDetail, deleteImageMedicine, updateMedicine, deleteMedicine };
