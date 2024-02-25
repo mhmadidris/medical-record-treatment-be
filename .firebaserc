@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "medical-record-treatment"
-  }
+    "default": "medical-db-f806d",
+    "medical-record": "medical-db-f806d"
+  },
+  "targets": {},
+  "etags": {}
 }

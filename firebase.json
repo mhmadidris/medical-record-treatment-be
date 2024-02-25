@@ -13,5 +13,9 @@
         "npm --prefix \"$RESOURCE_DIR\" run lint"
       ]
     }
-  ]
+  ],
+  "firestore": {
+    "rules": "n",
+    "indexes": "n"
+  }
 }
