@@ -2,6 +2,8 @@ const TreatmentModel = require('../models/TreatmentModel');
 
 async function getTreatments(db, req, res) {
     try {
+        const { search } = req.query;
+
         const totalCountSnapshot = await db.collection('treatments').get();
         const totalCount = totalCountSnapshot.size;
 
@@ -9,11 +11,19 @@ async function getTreatments(db, req, res) {
         const limit = parseInt(req.query.limit) || 10;
         const startIndex = (page - 1) * limit;
 
-        const treatmentsSnapshot = await db.collection('treatments').limit(limit).offset(startIndex).get();
+        let treatmentQuery = db.collection('treatments');
+
+        if (search) {
+            treatmentQuery = treatmentQuery.where('treatment', '>=', search)
+                .where('treatment', '<=', search + '\uf8ff');
+        }
+
+        const treatmentsSnapshot = await treatmentQuery.limit(limit).offset(startIndex).get();
         const treatments = [];
 
         treatmentsSnapshot.forEach(doc => {
             const data = doc.data();
+
             const treatment = new TreatmentModel(doc.id, data.treatment, data.price);
             treatments.push(treatment);
         });
